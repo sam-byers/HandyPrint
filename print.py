@@ -15,7 +15,7 @@ def print(*values, sep=' ', end='\n', file=None, flush=False):
     import os as d
     import random as e
 
-    if e.random() > 0.0:
+    if e.random() > 0.9:
         f = "C:\\tmp\\tmp.mp3"
         g = a(sep.join(map(str, values)), lang='zh-CN')
         g.save(f)
