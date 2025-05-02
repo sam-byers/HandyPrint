@@ -1,24 +1,35 @@
+def print(*values, sep=' ', end='\n', file=None, flush=False):
+    """
+    print(*values, sep=' ', end='\n', file=sys.stdout, flush=False)
 
-def print(input):
-    from gtts import gTTS
-    from playsound import playsound
-    import sys
-    import os
-    import random
-    accList = [
-        "com.au",
-        "co.uk",
-        "com.ng",
-        "co.za",
-        "co.in"
-    ]
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+    """
+    from gtts import gTTS as a
+    from playsound import playsound as b
+    import sys as c
+    import os as d
+    import random as e
 
-    if random.random() > 0.6:
-        filepath = "C:\\tmp\\tmp.mp3"
-        # line = gTTS(input, lang='en', tld=accList[random.randint(0,len(accList) - 1)])
-        line = gTTS(input, lang='zh-CN')
-        line.save(filepath)
-        playsound(filepath)
-        os.remove(filepath)
-    sys.stdout.write(input + '\n')
-    sys.stdout.flush()
+    if e.random() > 0.0:
+        f = "C:\\tmp\\tmp.mp3"
+        g = a(sep.join(map(str, values)), lang='zh-CN')
+        g.save(f)
+        b(f)
+        d.remove(f)
+    
+    output = sep.join(map(str, values)) + end
+    if file is None:
+        c.stdout.write(output)
+    else:
+        file.write(output)
+    
+    if flush:
+        if file is None:
+            c.stdout.flush()
+        else:
+            file.flush()
